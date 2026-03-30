@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add Movie</title>
+</head>
+<body>
+
+<h2>Add / Edit Movie</h2>
+
+<form th:action="@{/save}" th:object="${movie}" method="post">
+
+    <input type="hidden" th:field="*{id}" />
+
+    Name: <input type="text" th:field="*{name}" /><br><br>
+    Rating: <input type="text" th:field="*{rating}" /><br><br>
+    Genre: <input type="text" th:field="*{genre}" /><br><br>
+
+    <button type="submit">Save</button>
+</form>
+
+<br>
+<a href="/movies">Back</a>
+
+<p style="color:red" th:text="${errorMsg}"></p>
+
+</body>
+</html>
